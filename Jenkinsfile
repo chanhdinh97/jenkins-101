@@ -1,9 +1,5 @@
 pipeline {
-    agent { 
-        node {
-            label 'docker-agent-python'
-            }
-      }
+    agent any
     triggers {
         pollSCM '* * * * *'
     }
@@ -12,8 +8,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                cd myapp
-                pip install -r requirements.txt
+                echo "doing build stuff.."
                 '''
             }
         }
